@@ -23,9 +23,13 @@
 
 （環境によっては漏れがあるかもしれません。エラーが起きる場合は適宜インストールしてください）
 ```python
+#実行環境
+python==3.6.10
+tensorflow==2.2.0
 $pip install wordcloud
 $pip install seaborn
 $pip install gensim
+$pip install transformers
 $pip install pyldavis
 $pip install ipython
 $pip install requests requests_oauthlib
@@ -38,7 +42,9 @@ $pip install mecab-python3
 
 ### ①学習データセット作成
 
-BERTの事前学習モデルとしては東北大学の乾研究室が作成したものを用いています。
+BERTの事前学習モデルとしてはTransformersで東北大学の乾研究室が作成したものを用いています。
+
+https://github.com/cl-tohoku/bert-japanese
 
 https://huggingface.co/transformers/pretrained_models.html
 
