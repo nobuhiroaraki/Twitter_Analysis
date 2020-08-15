@@ -17,7 +17,7 @@ BERTの事前学習モデルとしては東北大学の乾研究室が作成し�
 
 取得したtweetデータとlabelを以下のような形式でcsvファイルにまとめます。<br>
 
-<img width="1409" alt="スクリーンショット 2020-07-22 15 46 26" src="https://user-images.githubusercontent.com/62980317/90303648-931baf00-deea-11ea-8940-305007779915.png">
+<img width="713" alt="スクリーンショット 2020-08-13 1 52 31" src="https://user-images.githubusercontent.com/62980317/90303682-d9710e00-deea-11ea-84f9-51febc342b14.png">
 
 
 train_model.ipynb(py)を
