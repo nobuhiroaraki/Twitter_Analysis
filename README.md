@@ -15,7 +15,9 @@ BERTの事前学習モデルとしては東北大学の乾研究室が作成し�
 このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningするために、http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f で公開されているTwitter日本語評判分析データセットを用います。<br>
 利用方法はhttps://github.com/tatHi/tweet_extructor 参考にしてください。<br>
 
-取得したtweetデータとlabelを以下のような形式でcsvファイルにまとめます。
+取得したtweetデータとlabelを以下のような形式でcsvファイルにまとめます。<br>
+
+<img width="1409" alt="スクリーンショット 2020-07-22 15 46 26" src="https://user-images.githubusercontent.com/62980317/90303648-931baf00-deea-11ea-8940-305007779915.png">
 
 
 train_model.ipynb(py)を
