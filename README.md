@@ -19,7 +19,9 @@
 
 ①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 <br> https://www.itti.jp/web-direction/how-to-apply-for-twitter-api/
 
-②以下をインストールしてください。（環境によっては漏れがあるかもしれません。エラーで引っかかる場合は適宜インストールしてください）
+②以下をインストールしてください。
+
+（環境によっては漏れがあるかもしれません。エラーが起きる場合は適宜インストールしてください）
 ```python
 $pip install wordcloud
 $pip install seaborn
