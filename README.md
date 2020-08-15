@@ -1,6 +1,6 @@
 # Twitter感情分析＆トピック分類
 
-任意のキーワードを含むツイートとプロフィール情報をTwitter上から収集し、各tweetのポジ/ネガを判定します。そしてポジ/ネガtweetをした人をプロフィール情報をもとにクラスタリングします。
+任意のキーワードを含むツイートとプロフィール情報をTwitter上から収集し、各tweetのポジ/ネガを判定します。そしてポジ/ネガtweetをしたアカウントをプロフィール情報をもとにクラスタリングします。
 
 感情分析にはBERT、クラスタリングにはLDAを用いています。
 
@@ -13,12 +13,12 @@
 BERTの事前学習モデルとしては東北大学の乾研究室が作成したものを用いています。<br> https://huggingface.co/transformers/pretrained_models.html <br>
 
 このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningするために、http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f で公開されているTwitter日本語評判分析データセットを用います。<br>
+利用方法はhttps://github.com/tatHi/tweet_extructor 参考にしてください。<br>
 
 取得したtweetデータとlabelを以下のような形式でcsvファイルにまとめます。
 
-また特定のキーワードに特化して分類するには、get_tweet.pyを実行してそのキーワードを
 
-利用方法はhttps://github.com/tatHi/tweet_extructor 参考にしてください。<br>
+
 
 
 train_model.ipynb(py)を
