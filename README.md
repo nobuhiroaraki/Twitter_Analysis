@@ -60,7 +60,7 @@ get_tweet.pyを実行してそのキーワードに関するツイートを取�
 
 ### ③予測
 
-get_tweet & Analysis.ipynb(Analysis.pyを実行して表示に従って操作することで感情分析〜クラスタリングまで行うことができます)
+get_tweet & Analysis.ipynb(Analysis.py)を実行し、表示に従って操作することで感情分析〜クラスタリングまで行うことができます
 
 予測結果はresultフォルダに保存されます。
 
