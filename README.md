@@ -18,9 +18,6 @@ BERTの事前学習モデルとしては東北大学の乾研究室が作成し�
 取得したtweetデータとlabelを以下のような形式でcsvファイルにまとめます。
 
 
-
-
-
 train_model.ipynb(py)を
 get_tweet & Analysis.ipynbをjupyternotebook上で実行すればツイートの収集〜クラスタリングから
 
@@ -35,7 +32,7 @@ pip install gensim
 pip install pyldavis
 pip install ipython
 ```
-### 参考にした記事
+## 参考にした記事
 tweet取得<br>
 http://ailaby.com/twitter_api/
 
@@ -43,8 +40,4 @@ BERTによる感情分析<br>
 https://qiita.com/namakemono/items/4c779c9898028fc36ff3
 
 LDA<br>
-
 http://www.ie110704.net/2018/12/29/wordcloud%E3%81%A8pyldavis%E3%81%AB%E3%82%88%E3%82%8Blda%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/
-
-http://www.ie110704.net/2018/12/29/wordcloud%E3%81%A8pyldavis%E3%81%AB%E3%82%88%E3%82%8Blda%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/
-
