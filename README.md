@@ -19,10 +19,6 @@ $pip install ipython
 $pip install requests requests_oauthlib
 $brew install mecab
 $brew install mecab-ipadic
-$brew install git curl xz
-$git clone --depth 1 git@github.com:neologd/mecab-ipadic-neologd.git
-$cd mecab-ipadic-neologd
-$./bin/install-mecab-ipadic-neologd -n
 $brew install swig
 $pip install mecab-python3
 ```
