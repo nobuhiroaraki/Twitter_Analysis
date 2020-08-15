@@ -27,7 +27,9 @@ def Analysis():
         except FileExistsError:
             print("同じ名前のフォルダがすでに存在しています。名前を変えてください")
             continue
-    df = preprocessing()
+    tweetdata_name = input("分析するtwitterデータファイルをdataフォルダに入れて、そのファイル名を入力してください(.csvまで)")
+    tweet_path = "data/{}".format(tweetdata_name)
+    df = preprocessing(tweet_path)
     df = sentiment_predict(df,folder_name)
     sentiment_plot(df,folder_name)
     posi_corpus,posi_dictionary,nega_corpus,nega_dictionary = get_topic_num(df)

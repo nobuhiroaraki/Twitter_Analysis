@@ -17,12 +17,10 @@ import numpy as np
 
 # # 前処理
 
-def preprocessing():#(tweet情報を格納したcsvファイルのpath)
+def preprocessing(tweet_path):#(tweet情報を格納したcsvファイルのpath)
     """
     tweetとprofileを前処理する関数
     """
-    tweetdata_name = input("分析するtwitterデータファイルをdataフォルダに入れて、そのファイル名を入力してください(.csvまで)")
-    tweet_path = "data/{}".format(tweetdata_name)
     df = pd.read_csv(tweet_path,engine='python',index_col=0)
     #分析の妥当性のために同一人物のツイートを削除
     df = df[~df.duplicated(subset='user_id', keep='last')].reset_index(drop=True)
@@ -69,3 +67,10 @@ def preprocessing():#(tweet情報を格納したcsvファイルのpath)
     print("分析可能なデータは{}件です".format(df.shape[0]))
     
     return df
+
+if __name__ == "__main__":
+    tweetdata_name = input("分析するtwitterデータファイルをdataフォルダに入れて、そのファイル名を入力してください(.csvまで)")
+    tweet_path = "data/{}".format(tweetdata_name)
+    df = preprocessing(tweet_path)
+    df.to_csv("data/processed.csv")
+    print("前処理した結果をdataフォルダに保存しました")
