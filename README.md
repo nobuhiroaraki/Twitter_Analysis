@@ -42,7 +42,8 @@ $pip install mecab-python3
 
 ### ①学習データセット作成
 
-BERTの事前学習モデルとしてはTransformersで用いることができる、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。
+BERTの事前学習モデルとしてはTransformersで用いることができる、<br>
+東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。
 
 https://github.com/cl-tohoku/bert-japanese
 
