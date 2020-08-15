@@ -49,7 +49,8 @@ https://github.com/cl-tohoku/bert-japanese
 
 https://huggingface.co/transformers/pretrained_models.html
 
-このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningするために、以下で公開されているTwitter日本語評判分析データセットを用います。<br>
+このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningするために、<br>
+以下で公開されているTwitter日本語評判分析データセットを用います。<br>
 http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f 
 
 利用方法はhttps://github.com/tatHi/tweet_extructor 参考にしてください。
@@ -64,7 +65,7 @@ get_tweet.pyを実行してそのキーワードに関するツイートを取�
 
 そして前処理されたデータを自力でラベル付けを行って、作成したcsvファイルに追加してください。
 
-(Twitter日本語評判分析データセットでのみfine-tuningを行った結果の精度は60〜65%、あるキーワードを200件ラベル付けして加えた場合の精度は65〜70%でした。)
+(日本語評判分析データセットのみでfine-tuningを行った結果の精度は60〜65%、特定のキーワードを200件ラベル付けして加えた場合の精度は65〜70%でした。)
 
 
 ### ②学習
