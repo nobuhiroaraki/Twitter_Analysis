@@ -2,7 +2,7 @@
 
 任意のキーワードを含むツイートとプロフィール情報をTwitter上から収集し、各tweetのポジ/ネガを判定します。
 
-そしてポジ/ネガtweetをしたアカウントごとに、そのプロフィール情報からクラスタリングします。
+そしてポジ/ネガtweetをしたアカウントを、そのプロフィール情報からクラスタリングします。
 
 (例)
 
@@ -12,12 +12,12 @@
 
 ③タピオカについてポジティブ（ネガティブ）なツイートをしたアカウントを、プロフィール文の情報を元にクラスタリング
 
-感情分析にはBERT、クラスタリングにはLDAを用いています。
+感情分析にはBERT(transformers)、クラスタリングにはLDA(gensim)を用いています。
 
 
 ## 事前準備
 
-①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 <br> https://www.itti.jp/web-direction/how-to-apply-for-twitter-api/
+①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 
 
 ②以下をインストールしてください。
 
@@ -42,12 +42,9 @@ $pip install mecab-python3
 
 ### ①学習データセット作成
 
-BERTの事前学習モデルとしてはTransformersで用いることができる、<br>
-東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。
+BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。
 
 https://github.com/cl-tohoku/bert-japanese
-
-https://huggingface.co/transformers/pretrained_models.html
 
 このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningします。<br>
 そのために以下で公開されているTwitter日本語評判分析データセットを用います。<br>
