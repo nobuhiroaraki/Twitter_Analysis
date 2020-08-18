@@ -68,7 +68,7 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f
 
 <img width="713" alt="スクリーンショット 2020-08-13 1 52 31" src="https://user-images.githubusercontent.com/62980317/90303682-d9710e00-deea-11ea-84f9-51febc342b14.png">
 
-### <特定のキーワードに特化して判定させる場合>
+#### <特定のキーワードに特化して判定させる場合>
 
 get_tweet.pyを実行してそのキーワードに関するツイートを取得し、preprocessing.pyを実行してツイートを前処理します。
 
