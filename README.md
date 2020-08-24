@@ -53,25 +53,28 @@ $brew install mecab-ipadic
 $brew install swig
 $pip install mecab-python3
 ```
-## 使い方
 
-### ①学習データセット作成
 
-BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。
+③学習データセット作成
 
+BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
 https://github.com/cl-tohoku/bert-japanese
 
-このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningします。<br>
-そのために以下で公開されているTwitter日本語評判分析データセットを用います。<br>
-http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f 
+このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningします。<br> 
 
-利用方法はhttps://github.com/tatHi/tweet_extructor 参考にしてください。
+fine_tuningのためのデータセット作成として以下の３種類の方法があります。
+
+(1)どのような話題に対しても汎用的な推測を行う場合（精度60~65%）
+
+汎用的な推測を行うために、以下で公開されている大規模なTwitter日本語評判分析データセットを用います。<br>
+http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
+利用方法はhttps://github.com/tatHi/tweet_extructor を参考にしてください。
 
 取得したtweetデータとlabelを以下のような形式でcsvファイルにまとめます。
 
 <img width="713" alt="スクリーンショット 2020-08-13 1 52 31" src="https://user-images.githubusercontent.com/62980317/90303682-d9710e00-deea-11ea-84f9-51febc342b14.png">
 
-#### <特定のキーワードに特化して判定させる場合>
+②特定のキーワードに特化して判定させる場合（精度75%前後）
 
 get_tweet.pyを実行してそのキーワードに関するツイートを取得し、preprocessing.pyを実行してツイートを前処理します。
 
@@ -86,7 +89,8 @@ get_tweet.pyを実行してそのキーワードに関するツイートを取�
 
 テストデータは作成した訓練データを分割するか、任意のツイート情報が入ったデータを上記画像の形式で作成してください。
 
-### ③予測
+## 使い方
+### 予測
 Analysis.py()を実行し、表示に従って操作することで感情分析〜クラスタリングまで行うことができます<br>
 (学習が終わっている場合、get_tweet & Analysis.ipynbを実行することで、ツイートの収集〜分析まで一括で行うことができます)
 
