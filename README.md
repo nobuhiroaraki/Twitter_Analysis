@@ -61,7 +61,7 @@ https://github.com/cl-tohoku/bert-japanese
 
 このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningします。<br> 
 
-fine_tuningのためのデータセット作成として以下の2種類の方法があります。
+fine-tuningのためのデータセット作成として以下の2種類の方法があります。
 
 (1)特定のキーワードに特化して判定させる場合（精度75%前後）
 
