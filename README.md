@@ -32,9 +32,9 @@
 
 ## 事前準備
 
-#### ①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 
+### ①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 
 
-#### ②以下をインストールしてください。
+### ②以下をインストールしてください。
 
 （環境によっては漏れがあるかもしれません。エラーが起きる場合は適宜インストールしてください）
 ```python
@@ -84,7 +84,7 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
 利用方法はhttps://github.com/tatHi/tweet_extructor を参考にしてください。
 取得したtweetデータとlabelを上記と同様の形式でcsvファイルにまとめます。
 
-#### ④学習
+### ④学習
 
 作成したcsvファイルをTwitter_Analysisファイル配下に置いて、train_model.ipynbの全てのセルを実行してください。(時間がかかるためGoogle colab等でGPUの利用を推奨)
 
