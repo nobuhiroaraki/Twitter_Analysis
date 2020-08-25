@@ -10,6 +10,8 @@
 
 という二つの仮説のもと、真の評判が集まる（はず）tweet情報からをポジ/ネガ分析し、それぞれの感情を抱く潜在的な層をTwitterのプロフィール情報から明らかにしようという試みです。
 
+![Twitter](https://user-images.githubusercontent.com/62980317/91154389-6e9ab080-e6fc-11ea-974d-6d847e578818.jpg) ![パソコン](https://user-images.githubusercontent.com/62980317/91154707-c802df80-e6fc-11ea-8266-5738dc7297d8.jpeg)
+
 ## 概要
 任意のキーワードを含むツイートとプロフィール情報をTwitter上から収集し、各tweetのポジ/ネガを判定します。<br>
 そしてポジ/ネガtweetをしたアカウントを、そのプロフィール情報からクラスタリングします。<br>
