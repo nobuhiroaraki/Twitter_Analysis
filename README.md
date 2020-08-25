@@ -1,8 +1,20 @@
-# Twitter感情分析＆トピック分類
+# Tweetの感情分析＆ポジ/ネガによるユーザーのクラスタリング
 
-任意のキーワードを含むツイートとプロフィール情報をTwitter上から収集し、各tweetのポジ/ネガを判定します。
+## 目的
+#### ➡︎商品やサービスに関するtweetをポジ/ネガ判定し、ポジ/ネガtweetをする人はどんな層の人々なのかを分析する。
 
-そしてポジ/ネガtweetをしたアカウントごとに、そのプロフィール情報からクラスタリングします。
+サクラレビューやアフィリエイトサイトが乱立する今日で、
+
+・「商品やサービスの真の評判はTwitterに集まるのでは？」<br>
+・「Twitterのプロフィール情報はその人の属性をかなり説明するものなのでは？」 
+
+という二つの仮説のもと、真の評判が集まる（はず）tweet情報からをポジ/ネガ分析し、それぞれの感情を抱く潜在的な層をTwitterのプロフィール情報から明らかにしようという試みです。
+
+## 概要
+任意のキーワードを含むツイートとプロフィール情報をTwitter上から収集し、各tweetのポジ/ネガを判定します。<br>
+そしてポジ/ネガtweetをしたアカウントを、そのプロフィール情報からクラスタリングします。<br>
+感情分析にはBERT(transformers)、クラスタリングにはLDA(gensim)を用いています。
+
 
 (例)
 
@@ -12,12 +24,15 @@
 
 ③タピオカについてポジティブ（ネガティブ）なツイートをしたアカウントを、プロフィール文の情報を元にクラスタリング
 
-感情分析にはBERT、クラスタリングにはLDAを用いています。
+（ポジティブクラスタ①「k-pop・韓国・JK」、ポジティブクラスタ②「大学・スタバ・バイト」　のようなイメージ）
+
+
+
 
 
 ## 事前準備
 
-①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 <br> https://www.itti.jp/web-direction/how-to-apply-for-twitter-api/
+①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 
 
 ②以下をインストールしてください。
 
@@ -38,32 +53,32 @@ $brew install mecab-ipadic
 $brew install swig
 $pip install mecab-python3
 ```
-## 使い方
 
-### ①学習データセット作成
 
-BERTの事前学習モデルとしてはTransformersで用いることができる、<br>
-東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。
+③学習データセット作成
 
+BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
 https://github.com/cl-tohoku/bert-japanese
 
-https://huggingface.co/transformers/pretrained_models.html
+このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningします。<br> 
 
-このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningするために、<br>
-以下で公開されているTwitter日本語評判分析データセットを用います。<br>
-http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f 
+fine_tuningのためのデータセット作成として以下の３種類の方法があります。
 
-利用方法はhttps://github.com/tatHi/tweet_extructor 参考にしてください。
+(1)どのような話題に対しても汎用的な推測を行う場合（精度65~70%前後）
+
+汎用的な推測を行うために、以下で公開されている大規模なTwitter日本語評判分析データセットを用います。<br>
+http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
+利用方法はhttps://github.com/tatHi/tweet_extructor を参考にしてください。
 
 取得したtweetデータとlabelを以下のような形式でcsvファイルにまとめます。
 
 <img width="713" alt="スクリーンショット 2020-08-13 1 52 31" src="https://user-images.githubusercontent.com/62980317/90303682-d9710e00-deea-11ea-84f9-51febc342b14.png">
 
-### <特定のキーワードに特化して判定させる場合>
+②特定のキーワードに特化して判定させる場合（精度75%前後）
 
 get_tweet.pyを実行してそのキーワードに関するツイートを取得し、preprocessing.pyを実行してツイートを前処理します。
 
-そして前処理されたデータを自力でラベル付けを行って、作成したcsvファイルに追加してください。
+そして前処理されたデータを上記表のようにラベル付けを行って、作成したcsvファイルに追加してください。
 
 (日本語評判分析データセットのみでfine-tuningを行った結果の精度は60〜65%、特定のキーワードを200件ラベル付けして加えた場合の精度は65〜70%でした。)
 
@@ -74,9 +89,10 @@ get_tweet.pyを実行してそのキーワードに関するツイートを取�
 
 テストデータは作成した訓練データを分割するか、任意のツイート情報が入ったデータを上記画像の形式で作成してください。
 
-### ③ツイート収集予測
-
-get_tweet & Analysis.ipynb(Analysis.py)を実行し、表示に従って操作することで感情分析〜クラスタリングまで行うことができます
+## 使い方
+### 予測
+Analysis.py()を実行し、表示に従って操作することで感情分析〜クラスタリングまで行うことができます<br>
+(学習が終わっている場合、get_tweet & Analysis.ipynbを実行することで、ツイートの収集〜分析まで一括で行うことができます)
 
 予測結果はresultフォルダに保存されます。
 
