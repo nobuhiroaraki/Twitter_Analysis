@@ -100,6 +100,14 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
 
 分析結果はresultフォルダに保存されます。
 
+### 結果例
+
+ポジティブクラスタ例
+![3topics_positive_group1](https://user-images.githubusercontent.com/62980317/91171837-2a1c0e80-e716-11ea-96e2-fb20db7a8b96.png) <img width="1415" alt="スクリーンショット 2020-08-25 20 32 57" src="https://user-images.githubusercontent.com/62980317/91171854-3738fd80-e716-11ea-80f0-6bad3cab955e.png">
+
+ネガティブクラスタ例
+![4topics_negative_group2](https://user-images.githubusercontent.com/62980317/91171975-6d767d00-e716-11ea-9ecf-6795a8598813.png) <img width="1408" alt="スクリーンショット 2020-08-25 20 32 16" src="https://user-images.githubusercontent.com/62980317/91171988-71a29a80-e716-11ea-9e80-6b958f882f02.png">
+
 
 ## 参考にした記事
 
