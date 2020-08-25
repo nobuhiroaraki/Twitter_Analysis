@@ -56,7 +56,7 @@ $brew install swig
 $pip install mecab-python3
 ```
 
-#### ③fine-tuning用データセット作成
+### ③fine-tuning用データセット作成
 
 BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
 https://github.com/cl-tohoku/bert-japanese
