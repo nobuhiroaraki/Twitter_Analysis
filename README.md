@@ -63,11 +63,11 @@ https://github.com/cl-tohoku/bert-japanese
 
 fine-tuningのためのデータセット作成として以下の2種類の方法があります。
 
-(1)特定のキーワードに特化して判定させる場合（精度75%前後）
+(1)特定のキーワードに特化して判定させる場合（300件のデータでfine-tuningした結果、精度75%前後）
 
 ターミナル上で以下のように実行してください
 ```python
-python3 get_tweet.py #キーワードに関するツイートを取得
+python3 get_tweet.py #分析したいキーワードのツイートを収集します。
 python3 preprocessing.py #ツイートを前処理(結果はdataフォルダにprocessed.csvとして保存されます)
 ```
 そしてprocessed.csvを下記表と同じ形式に編集します。<br>
