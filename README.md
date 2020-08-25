@@ -32,9 +32,9 @@
 
 ## 事前準備
 
-①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 
+#### ①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 
 
-②以下をインストールしてください。
+#### ②以下をインストールしてください。
 
 （環境によっては漏れがあるかもしれません。エラーが起きる場合は適宜インストールしてください）
 ```python
@@ -54,47 +54,49 @@ $brew install swig
 $pip install mecab-python3
 ```
 
-
-③学習データセット作成
+#### ③fine-tuning用データセット作成
 
 BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
 https://github.com/cl-tohoku/bert-japanese
 
 このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningします。<br> 
 
-fine_tuningのためのデータセット作成として以下の３種類の方法があります。
+fine_tuningのためのデータセット作成として以下の2種類の方法があります。
 
-(1)どのような話題に対しても汎用的な推測を行う場合（精度65~70%前後）
+(1)特定のキーワードに特化して判定させる場合（精度75%前後）
 
-汎用的な推測を行うために、以下で公開されている大規模なTwitter日本語評判分析データセットを用います。<br>
-http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
-利用方法はhttps://github.com/tatHi/tweet_extructor を参考にしてください。
-
-取得したtweetデータとlabelを以下のような形式でcsvファイルにまとめます。
+ターミナル上で以下のように実行してください
+```python
+python3 get_tweet.py #キーワードに関するツイートを取得
+python3 preprocessing.py #ツイートを前処理(結果はdataフォルダにprocessed.csvとして保存されます)
+```
+そしてprocessed.csvを下記表と同じ形式に編集します。<br>
+processed_tweetの列以外を削除して、新たにlabelという列を追加してください。<br>
+そして各tweetポジティブ(1)なのか、ネガティブ(0)なのかラベル付けを行ってください。
 
 <img width="713" alt="スクリーンショット 2020-08-13 1 52 31" src="https://user-images.githubusercontent.com/62980317/90303682-d9710e00-deea-11ea-84f9-51febc342b14.png">
 
-②特定のキーワードに特化して判定させる場合（精度75%前後）
+(2)どのような話題に対しても汎用的な推測を行う場合（精度65~70%前後）
 
-get_tweet.pyを実行してそのキーワードに関するツイートを取得し、preprocessing.pyを実行してツイートを前処理します。
+汎用的な話題に対して推測を行うには大量のデータが必要です。<br>
+しかし自力で大量にラベル付けを行うのは大変なため、以下で公開されている大規模なTwitter日本語評判分析データセットを用います。<br>
+http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
+利用方法はhttps://github.com/tatHi/tweet_extructor を参考にしてください。
+取得したtweetデータとlabelを上記と同様の形式でcsvファイルにまとめます。
 
-そして前処理されたデータを上記表のようにラベル付けを行って、作成したcsvファイルに追加してください。
+#### ④学習
 
-(日本語評判分析データセットのみでfine-tuningを行った結果の精度は60〜65%、特定のキーワードを200件ラベル付けして加えた場合の精度は65〜70%でした。)
+作成したcsvファイルをTwitter_Analysisファイル配下に置いて、train_model.ipynbの全てのセルを実行してください。(時間がかかるためGoogle colab等でGPUの利用を推奨)
 
-
-### ②学習
-
-作成したcsvファイルをディレクトリ下に置いて、train_model.ipynbを実行してください。(GPU推奨)
-
-テストデータは作成した訓練データを分割するか、任意のツイート情報が入ったデータを上記画像の形式で作成してください。
 
 ## 使い方
-### 予測
+
+### 分析
 Analysis.py()を実行し、表示に従って操作することで感情分析〜クラスタリングまで行うことができます<br>
-(学習が終わっている場合、get_tweet & Analysis.ipynbを実行することで、ツイートの収集〜分析まで一括で行うことができます)
+(学習が終わっている場合、get_tweet & Analysis.ipynbの全てのセルを実行することで、ツイートの収集〜分析まで一括で行うことができます)
 
 予測結果はresultフォルダに保存されます。
+
 
 ## 参考にした記事
 
