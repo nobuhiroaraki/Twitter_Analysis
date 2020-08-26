@@ -70,7 +70,7 @@ fine-tuningのためのデータセット作成として以下の2種類の方�
 
 ターミナル上で以下のように実行してください
 ```python
-#分析したいキーワードのツイートを収集します。
+#分析したいキーワードを含むツイートを収集します。
 python3 get_tweet.py 
 
 #ツイートを前処理(結果はdataフォルダにprocessed.csvとして保存されます)
@@ -80,7 +80,7 @@ python3 preprocessing.py
 processed_tweetの列以外を削除して、新たにlabelという列を追加してください。<br>
 そして各tweetポジティブ(1)なのか、ネガティブ(0)なのかラベル付けを行ってください。
 
-<img width="713" alt="スクリーンショット 2020-08-26 18 41 28" src="https://user-images.githubusercontent.com/62980317/91288434-f4d1f800-e7cb-11ea-8da4-7c6981039520.png">
+<img width="716" alt="スクリーンショット 2020-08-26 18 57 09" src="https://user-images.githubusercontent.com/62980317/91290065-1fbd4b80-e7ce-11ea-98cd-b5ee06236764.png">
 
 
 #### (2)どのような話題に対しても汎用的な推測を行う場合（精度65~70%前後）
