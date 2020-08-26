@@ -100,7 +100,7 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
 ## 使い方
 
 ### 分析
-④学習と同様にget_tweet & Analysis.ipynbのセルを上から実行し、<br>
+学習と同様にget_tweet & Analysis.ipynbのセルを上から実行し、<br>
 表示に従って操作することでツイートの収集・感情分析・クラスタリングを行うことができます。
 
 分析結果はresultフォルダに保存されます。
