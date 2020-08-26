@@ -80,7 +80,7 @@ python3 preprocessing.py
 processed_tweetの列以外を削除して、新たにlabelという列を追加してください。<br>
 そして各tweetポジティブ(1)なのか、ネガティブ(0)なのかラベル付けを行ってください。
 
-<img width="713" alt="スクリーンショット 2020-08-13 1 52 31" src="https://user-images.githubusercontent.com/62980317/90303682-d9710e00-deea-11ea-84f9-51febc342b14.png">
+<img width="713" alt="スクリーンショット 2020-08-26 18 41 28" src="https://user-images.githubusercontent.com/62980317/91288434-f4d1f800-e7cb-11ea-8da4-7c6981039520.png">
 
 
 #### (2)どのような話題に対しても汎用的な推測を行う場合（精度65~70%前後）
