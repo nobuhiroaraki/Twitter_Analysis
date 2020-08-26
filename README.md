@@ -69,8 +69,11 @@ fine-tuningのためのデータセット作成として以下の2種類の方�
 
 ターミナル上で以下のように実行してください
 ```python
-python3 get_tweet.py #分析したいキーワードのツイートを収集します。
-python3 preprocessing.py #ツイートを前処理(結果はdataフォルダにprocessed.csvとして保存されます)
+分析したいキーワードのツイートを収集します。企業によるツイートや広告目的のものを除外するために、<br>
+デフォルトではリツイートやリプライ、URLやハッシュタグのついたツイートは除外されます。
+python3 get_tweet.py 
+#ツイートを前処理(結果はdataフォルダにprocessed.csvとして保存されます)
+python3 preprocessing.py 
 ```
 そしてprocessed.csvを下記表と同じ形式に編集します。<br>
 processed_tweetの列以外を削除して、新たにlabelという列を追加してください。<br>
