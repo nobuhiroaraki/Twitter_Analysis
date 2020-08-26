@@ -92,7 +92,7 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
 
 ### ④学習
 
-作成したcsvファイルをTwitter_Analysisファイル内に保存して、train_model.ipynbの全てのセルを実行してください。(時間がかかるためGoogle colab等でGPUの利用を推奨)
+作成したcsvファイルをTwitter_Analysisフォルダ内に保存して、train_model.ipynbの全てのセルを実行してください。(時間がかかるためGoogle colab等でGPUの利用を推奨)
 
 
 ## 使い方
