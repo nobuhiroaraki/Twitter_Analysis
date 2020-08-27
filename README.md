@@ -35,9 +35,9 @@
 
 ## 事前準備
 
-### ①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 
+#### ①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 
 
-### ②以下をインストールしてください。
+#### ②以下をインストールしてください。
 
 （環境によっては漏れがあるかもしれません。エラーが起きる場合は適宜インストールしてください）
 ```python
@@ -57,7 +57,7 @@ $brew install swig
 $pip install mecab-python3
 ```
 
-### ③fine-tuning用データセット作成
+#### ③fine-tuning用データセット作成
 
 BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
 https://github.com/cl-tohoku/bert-japanese
@@ -66,7 +66,7 @@ https://github.com/cl-tohoku/bert-japanese
 
 fine-tuningのためのデータセット作成として以下の2種類の方法があります。
 
-#### (1)特定のキーワードに特化して判定させる場合（300件のデータでfine-tuningした結果、精度75%前後）
+##### (1)特定のキーワードに特化して判定させる場合（300件のデータでfine-tuningした結果、精度75%前後）
 
 ターミナル上で以下のように実行してください
 ```python
@@ -83,7 +83,7 @@ processed_tweetの列以外を削除して、新たにlabelという列を追加
 <img width="716" alt="スクリーンショット 2020-08-26 18 57 09" src="https://user-images.githubusercontent.com/62980317/91290065-1fbd4b80-e7ce-11ea-98cd-b5ee06236764.png">
 
 
-#### (2)どのような話題に対しても汎用的に推測を行う場合（精度65~70%前後）
+##### (2)どのような話題に対しても汎用的に推測を行う場合（精度65~70%前後）
 
 様々な話題に対して汎用的に推測を行うには大量のデータが必要です。<br>
 しかし自力で大量にラベル付けを行うのは大変なため、以下で公開されている大規模なTwitter日本語評判分析データセットを用います。<br>
@@ -91,7 +91,7 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
 利用方法はhttps://github.com/tatHi/tweet_extructor を参考にしてください。<br>
 取得したtweetデータとlabelを上記と同様の形式でcsvファイルにまとめます。
 
-### ④学習
+#### ④学習
 
 作成したcsvファイルをtrain_dataフォルダ内に保存して、train_model.ipynbの全てのセルを実行してください。<br>
 (時間がかかるためGoogle colab等でGPUの利用を推奨)
