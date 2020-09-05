@@ -16,8 +16,8 @@
 ## 概要
 任意のキーワードを含むツイートとプロフィール情報をTwitter上から収集し、各tweetのポジ/ネガを判定します。<br>
 そしてポジ/ネガtweetをしたアカウントを、そのプロフィール情報からクラスタリングします。<br>
-感情分析にはBERT(transformers)、クラスタリングにはLDA(gensim)を用いています。
-
+感情分析にはBERT(transformers)、クラスタリングにはLDA(gensim)を用いています。<br>
+dockerで環境を構築しています。もしdocker環境が整っていないようであればこのリポジトリをgit cloneして、フォルダをgoogle colab等にアップロードして使ってください。
 
 (例)
 
@@ -39,25 +39,22 @@
 
 
 
-### ②以下をインストールしてください。
-
-（環境によっては漏れがあるかもしれません。エラーが起きる場合は適宜インストールしてください）
-```python
-#実行環境
-python==3.6.10
-tensorflow==2.2.0
-$pip install wordcloud
-$pip install seaborn
-$pip install gensim
-$pip install transformers
-$pip install pyldavis
-$pip install ipython
-$pip install requests requests_oauthlib
-$brew install mecab
-$brew install mecab-ipadic
-$brew install swig
-$pip install mecab-python3
+### ②環境構築
+dockerにて環境を構築しています。
 ```
+$ docker pull nobu0513/twitter_analysis
+```
+でpullして起動てください。
+
+そして以下のURLから環境構築済みのjupyterlabに飛ぶことができます。
+
+-mac-<br>
+http://localhost:8890/
+
+-windows-<br>
+http://192.168.99.100:8890/
+
+jupyterlabに飛べたら、workspace➡︎Twitter_Analysisのフォルダに移動してください。
 
 
 ### ③fine-tuning用データセット作成
@@ -68,7 +65,6 @@ https://github.com/cl-tohoku/bert-japanese
 このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningします。<br> 
 
 fine-tuningのためのデータセット作成として以下の2種類の方法があります。
-
 
 
 #### (1)特定のキーワードに特化して判定させる場合（300件のデータでfine-tuningした結果、精度75%前後）
@@ -88,8 +84,9 @@ processed_tweetの列以外を削除して、新たにlabelという列を追加
 <img width="716" alt="スクリーンショット 2020-08-26 18 57 09" src="https://user-images.githubusercontent.com/62980317/91290065-1fbd4b80-e7ce-11ea-98cd-b5ee06236764.png">
 
 
-
 #### (2)どのような話題に対しても汎用的に推測を行う場合（精度65~70%前後）
+
+※dockerで構築した環境にはこの方法で学習させた重みが予め用意されているため、この方法で使用する場合fine-tuningする必要はありません。
 
 様々な話題に対して汎用的に推測を行うには大量のデータが必要です。<br>
 しかし自力で大量にラベル付けを行うのは大変なため、以下で公開されている大規模なTwitter日本語評判分析データセットを用います。<br>
@@ -98,16 +95,14 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
 取得したtweetデータとlabelを上記と同様の形式でcsvファイルにまとめます。
 
 
-
 ### ④学習
 
 作成したcsvファイルをtrain_dataフォルダ内に保存して、train_model.ipynbの全てのセルを実行してください。<br>
 (時間がかかるためGoogle colab等でGPUの利用を推奨)
 
 
-
 ## 分析
-学習と同様にget_tweet & Analysis.ipynbのセルを上から実行し、<br>
+get_tweet & Analysis.ipynbのセルを上から実行し、<br>
 表示に従って操作することでツイートの収集・感情分析・クラスタリングを行うことができます。
 
 分析結果はresultフォルダに保存されます。
