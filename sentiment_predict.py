@@ -50,7 +50,7 @@ def to_features(texts, max_length):
     token_type_ids = np.zeros(shape, dtype="int32")
     for i, text in enumerate(texts):
         try:
-            encoded_dict = tokenizer.encode_plus(text, max_length=max_length, pad_to_max_length=True)
+            encoded_dict = tokenizer.encode_plus(text, max_length=max_length, pad_to_max_length=True,truncation = True)
         except:
             pass
         input_ids[i] = encoded_dict["input_ids"]
