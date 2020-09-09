@@ -68,7 +68,20 @@ https://github.com/cl-tohoku/bert-japanese
 fine-tuningのためのデータセット作成として以下の2種類の方法があります。
 
 
-#### (1)特定のキーワードに特化して判定させる場合（300件のデータでfine-tuningした結果、精度75%前後）
+#### (1)どのような話題に対しても汎用的に推測を行う場合（精度65~70%前後）
+
+※dockerで構築した環境にはこの方法で学習させた重みが予め用意されているため、<br>
+この方法で使用する場合③fine-tuning用データセット作成と④学習をする必要はありません。
+
+様々な話題に対して汎用的に推測を行うには大量のデータが必要です。<br>
+しかし自力で大量にラベル付けを行うのは大変なため、以下で公開されている大規模なTwitter日本語評判分析データセットを用います。<br>
+http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
+利用方法はhttps://github.com/tatHi/tweet_extructor を参考にしてください。<br>
+取得したtweetデータと感情判定(ポジティブ=1、ネガティブ=0)を下記と同様の形式でcsvファイルにまとめます。
+
+<img width="716" alt="スクリーンショット 2020-08-26 18 57 09" src="https://user-images.githubusercontent.com/62980317/91290065-1fbd4b80-e7ce-11ea-98cd-b5ee06236764.png">
+
+#### (2)特定のキーワードに特化して判定させる場合（300件のデータでfine-tuningした結果、精度75%前後）
 
 ターミナル上で以下のように実行してください
 ```python
@@ -78,23 +91,11 @@ $python3 get_tweet.py
 #ツイートを前処理(結果はdataフォルダにprocessed.csvとして保存されます
 $python3 preprocessing.py 
 ```
-そしてprocessed.csvを下記表と同じ形式に編集します。<br>
-processed_tweetの列以外を削除して、新たにlabelという列を追加してください。<br>
+そしてprocessed.csvを上記表と同じ形式に編集します。<br>
 そして各tweetをポジティブ(1)なのか、ネガティブ(0)なのかラベル付けを行ってください。
 
-<img width="716" alt="スクリーンショット 2020-08-26 18 57 09" src="https://user-images.githubusercontent.com/62980317/91290065-1fbd4b80-e7ce-11ea-98cd-b5ee06236764.png">
 
 
-#### (2)どのような話題に対しても汎用的に推測を行う場合（精度65~70%前後）
-
-※dockerで構築した環境にはこの方法で学習させた重みが予め用意されているため、<br>
-この方法で使用する場合③fine-tuning用データセット作成と④学習をする必要はありません。
-
-様々な話題に対して汎用的に推測を行うには大量のデータが必要です。<br>
-しかし自力で大量にラベル付けを行うのは大変なため、以下で公開されている大規模なTwitter日本語評判分析データセットを用います。<br>
-http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
-利用方法はhttps://github.com/tatHi/tweet_extructor を参考にしてください。<br>
-取得したtweetデータとlabelを上記と同様の形式でcsvファイルにまとめます。
 
 
 ### ④学習
