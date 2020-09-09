@@ -50,10 +50,10 @@ $ docker pull nobu0513/twitter_analysis
 そして以下のURLから環境構築済みのjupyterlabに飛ぶことができます。
 
 -mac-<br>
-http://localhost:8890/
+http://localhost:8888/
 
 -windows-<br>
-http://192.168.99.100:8890/
+http://192.168.99.100:8888/
 
 jupyterlabに飛べたら、workspace➡︎Twitter_Analysisのフォルダに移動してください。
 
