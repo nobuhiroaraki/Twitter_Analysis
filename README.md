@@ -75,9 +75,14 @@ fine-tuningのためのデータセット作成として以下の2種類の方�
 
 様々な話題に対して汎用的に推測を行うには大量のデータが必要です。<br>
 しかし自力で大量にラベル付けを行うのは大変なため、以下で公開されている大規模なTwitter日本語評判分析データセットを用います。<br>
-http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f <br>
+http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f
+
+
 利用方法はhttps://github.com/tatHi/tweet_extructor を参考にしてください。<br>
-取得したtweetデータと感情判定(ポジティブ=1、ネガティブ=0)を下記と同様の形式でcsvファイルにまとめます。
+
+
+取得したtweetデータと感情判定(ポジティブ=1、ネガティブ=0)を、下記と同様の形式でcsvファイルにまとめます。
+
 
 <img width="716" alt="スクリーンショット 2020-08-26 18 57 09" src="https://user-images.githubusercontent.com/62980317/91290065-1fbd4b80-e7ce-11ea-98cd-b5ee06236764.png">
 
