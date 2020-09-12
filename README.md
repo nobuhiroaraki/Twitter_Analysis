@@ -48,7 +48,7 @@ git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 
 
 ## ファインチューニング用データセット作成について<br>
-preprocessing実行後、train_model()実行のためにデータセットを作成する必要があります。そのやり方を解説します。
+train_model()実行の前にファインチューニング用のデータセットを作成する必要があります。そのやり方を解説します。
 
 BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
 https://github.com/cl-tohoku/bert-japanese
