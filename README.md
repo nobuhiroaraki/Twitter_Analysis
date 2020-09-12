@@ -98,7 +98,7 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f
 
 <img width="1408" alt="スクリーンショット 2020-08-25 20 32 16" src="https://user-images.githubusercontent.com/62980317/91171988-71a29a80-e716-11ea-9e80-6b958f882f02.png">
 
-
+#### 分析結果のHTML形式のファイルはダウンロードしてお使いください
 ## 参考にした記事
 
 http://ailaby.com/twitter_api/ <br>
