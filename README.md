@@ -41,35 +41,12 @@ git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 
 ### ③ Twitter_Analysisフォルダをgoogle driveにアップロード
 
-### ④Google Colabに接続
+### ④google colab notebook.ipynbを開く➡︎GPUに接続し、driveにマウント
 
-#### ※以下⑤〜⑦はgoogle colab notebook.ipynbの全てのセルを実行するのみ
+#### ※あとはgoogle colab notebook.ipynbの全てのセルを実行すれば分析まで行えます。
 
-### ⑤Google Colab上の環境構築
 
-接続できたら以下のコマンドを入力してください。
-
-```python
-cd drive/My\ Drive/Twitter_Analysis
-
-!pip install tensorflow
-!pip install wordcloud
-!pip install seaborn
-!pip install gensim
-!pip install transformers
-!pip install pyldavis
-!pip install ipython
-!pip install requests requests_oauthlib
-!pip install emoji
-!apt install aptitude
-!aptitude install mecab libmecab-dev mecab-ipadic-utf8 git make curl xz-utils file -y
-!git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
-!echo yes | mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n
-!apt-get -q -y install swig 
-!pip install mecab-python3
-```
-
-### ⑤fine-tuning用データセット作成
+### fine-tuning用データセット作成について
 
 BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
 https://github.com/cl-tohoku/bert-japanese
@@ -108,24 +85,6 @@ preprocessing()
 
 
 
-### ⑥学習
-
-作成したcsvファイルをtrain_dataフォルダ内に保存して、
-notebook上で以下のように実行し、表示に従って操作してください
-```python
-from train_model import train_model
-train_model()
-```
-
-## ⑦分析
-notebook上で以下のように実行し、表示に従って操作してください
-```python
-from Analysis import Analysis
-Analysis()
-```
-表示に従って操作することでツイートの収集・感情分析・クラスタリングを行うことができます。
-
-分析結果はresultフォルダに保存されます。
 
 
 ## 結果例
