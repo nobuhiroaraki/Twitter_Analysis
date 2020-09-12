@@ -63,7 +63,7 @@ notebook上で以下のように実行し、表示に従って操作してくだ
 from get_tweet import get_tweet
 from preprocessing import preprocessing
 get_tweet()
-tweet_path = "data/{}".format(input("分析するtweetデータファイルのファイル名を入力してください(.csvまで)"))
+tweet_path = "data/{}".format(input("学習させるtweetデータファイルのファイル名を入力してください(.csvまで)"))
 df = preprocessing(tweet_path)
 ```
 
