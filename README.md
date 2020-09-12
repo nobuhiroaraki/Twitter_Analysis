@@ -1,7 +1,7 @@
 # Tweetの感情分析＆ポジ/ネガによるアカウントのクラスタリング
 
 ## 目的
-#### ➡︎特定のキーワードを含むtweetをポジ/ネガ判定し、特定のキーワードについてポジ/ネガtweetをする人はどんな層の人々なのかを分析する
+#### 特定のキーワードを含むtweetをポジ/ネガ判定し、特定のキーワードについてポジ/ネガtweetをする人はどんな層の人々なのかを分析する
 
 サクラレビューやアフィリエイトサイトが乱立し、信頼できる「真の評判」を見分けるのが難しい今日で、
 
@@ -32,20 +32,21 @@
 
 ## 利用方法
 
-### ①Twitter APIの利用申請を行い、APIキー、トークンを取得
+#### ①Twitter APIの利用申請を行い、APIキー、トークンを取得
 
-### ②リポジトリをクローン
+#### ②リポジトリをクローン
 ```
 git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 ```
 
-### ③ Twitter_Analysisフォルダをgoogle driveにアップロード
+#### ③ Twitter_Analysisフォルダをgoogle driveにアップロード
 
-### ④google colab notebook.ipynbを開く➡︎GPUに接続し、driveにマウント
-#### ※あとはgoogle colab notebook.ipynbの全てのセルを実行すればツイートの収集・前処理・ファインチューニング・感情分析・クラスタリングまで行われます。
+#### ④google colab notebook.ipynbを開く➡︎GPUに接続し、driveにマウント
+#### ※あとはgoogle colab notebook.ipynbの全てのセルを実行すれば<br>
+ツイートの収集・前処理・ファインチューニング・感情分析・クラスタリングまで行われます。
 
 
-### ファインチューニング用データセット作成について<br>
+## ファインチューニング用データセット作成について<br>
 train_model()実行のためにデータセットを作成する必要があります。そのやり方を解説します。
 
 BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
