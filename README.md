@@ -43,8 +43,8 @@ git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 
 ### ③ Twitter_Analysisフォルダをgoogle driveにアップロード
 
-### ④google colab notebook.ipynbを開く➡︎GPUに接続し、driveにマウント
-### ⑤あとはgoogle colab notebook.ipynbの全てのセルを実行すれば<br>ツイートの収集・前処理・ファインチューニング・感情分析・クラスタリングまで行うことができます。
+### ④Google Colabでtest_notebook.ipynbを開く➡︎GPUに接続し、driveにマウント
+### ⑤test_notebook.ipynbの全てのセルを実行して指示に従って操作をすることで<br>ツイートの収集・前処理・ファインチューニング・感情分析・クラスタリングまで行うことができます。
 
 
 ## ファインチューニング用データセット作成について<br>
