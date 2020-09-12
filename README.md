@@ -32,33 +32,44 @@ dockerで環境を構築しています。<br>
 
 
 
+## 利用方法
 
+### ①Twitter APIの利用申請を行い、APIキー、トークンを取得
 
-## 事前準備
-
-### ①Twitter APIの利用申請を行い、APIキー、トークンを取得してください。 
-
-
-
-### ②環境構築
-dockerにて環境を構築しています。
+### ②リポジトリをクローン
 ```
-$ docker pull nobu0513/twitter_analysis
+git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 ```
-でpullして起動てください。
 
-そして以下のURLから環境構築済みのjupyterlabに飛ぶことができます。
+### ③ Twitter_Analysisフォルダをgoogle driveにアップロード
 
--mac-<br>
-http://localhost:8888/
+### ④Google Colab上の環境構築
 
--windows-<br>
-http://192.168.99.100:8888/
+GPUに接続してdriveにマウントします。
 
-jupyterlabに飛べたら、workspace➡︎Twitter_Analysisのフォルダに移動してください。
+接続できたら以下のコマンドを入力してください。
 
+```python
+cd drive/My\ Drive/Twitter_Analysis
 
-### ③fine-tuning用データセット作成
+!pip install tensorflow
+!pip install wordcloud
+!pip install seaborn
+!pip install gensim
+!pip install transformers
+!pip install pyldavis
+!pip install ipython
+!pip install requests requests_oauthlib
+!pip install emoji
+!apt install aptitude
+!aptitude install mecab libmecab-dev mecab-ipadic-utf8 git make curl xz-utils file -y
+!git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
+!echo yes | mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n
+!apt-get -q -y install swig 
+!pip install mecab-python3
+```
+
+### ⑤fine-tuning用データセット作成
 
 BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
 https://github.com/cl-tohoku/bert-japanese
@@ -69,10 +80,6 @@ fine-tuningのためのデータセット作成として以下の2種類の方�
 
 
 #### (1)どのような話題に対しても汎用的に推測を行う場合（精度65~70%前後）
-
-※dockerで構築した環境にはこの方法で学習させた重みが予め用意されているため、<br>
-Dockerとこの方法を使用する場合は、③・④を行う必要はありません。
-
 
 様々な話題に対して汎用的に推測を行うには大量のデータが必要です。<br>
 しかし自力で大量にラベル付けを行うのは大変なため、以下で公開されている大規模なTwitter日本語評判分析データセットを用います。<br>
@@ -89,29 +96,33 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f
 
 #### (2)特定のキーワードに特化して判定させる場合（300件のデータでfine-tuningした結果、精度75%前後）
 
-ターミナル上で以下のように実行してください
+notebook上で以下のように実行し、表示に従って操作してください
 ```python
-#分析したいキーワードを含むツイートを収集します
-$python3 get_tweet.py 
-
-#ツイートを前処理(結果はdataフォルダにprocessed.csvとして保存されます
-$python3 preprocessing.py 
+from get_tweet import get_tweet
+from preprocessing import preprocessing
+get_tweet()
+preprocessing()
 ```
 そしてprocessed.csvを上記表と同じ形式に編集します。<br>
 そして各tweetをポジティブ(1)なのか、ネガティブ(0)なのかラベル付けを行ってください。
 
 
 
+### ⑥学習
 
-
-### ④学習
-
-作成したcsvファイルをtrain_dataフォルダ内に保存して、train_model.ipynbの全てのセルを実行してください。<br>
-(時間がかかるためGoogle colab等でGPUの利用を推奨)
-
+作成したcsvファイルをtrain_dataフォルダ内に保存して、
+notebook上で以下のように実行し、表示に従って操作してください
+```python
+from train_model import train_model
+train_model()
+```
 
 ## 分析
-get_tweet & Analysis.ipynbのセルを上から実行し、<br>
+notebook上で以下のように実行し、表示に従って操作してください
+```python
+from train_model import train_model
+train_model()
+```
 表示に従って操作することでツイートの収集・感情分析・クラスタリングを行うことができます。
 
 分析結果はresultフォルダに保存されます。
