@@ -46,7 +46,7 @@ git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 
 
 ## ファインチューニング用データセット作成について<br>
-train_model()実行のためにデータセットを作成する必要があります。そのやり方を解説します。
+preprocessing実行後、train_model()実行のためにデータセットを作成する必要があります。そのやり方を解説します。
 
 BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
 https://github.com/cl-tohoku/bert-japanese
@@ -56,21 +56,15 @@ https://github.com/cl-tohoku/bert-japanese
 ファインチューニングのためのデータセット作成として以下の2種類の方法があります。
 
 
-#### (1)特定のキーワードに特化して判定させる場合（300件のデータでファインチューニングした結果、精度75%前後）
+#### (1)分析したいキーワードに特化して判定させる場合（300件のデータでファインチューニングした結果、精度75%前後）<br>
+※デフォルトではこのやり方を想定しています
 
 notebook上で以下のように実行し、表示に従って操作してください
-```python
-from get_tweet import get_tweet
-from preprocessing import preprocessing
-get_tweet()
-tweet_path = "data/{}".format(input("学習させるtweetデータファイルのファイル名を入力してください(.csvまで)"))
-df = preprocessing(tweet_path)
-```
 
-ツイートの収集＆前処理結果が、dataフォルダにprocessed.csvとして保存されます<br>
-そしてprocessed.csvを以下の表と同じ形式に編集します。<br>
-そして各tweetをポジティブ(1)なのか、ネガティブ(0)なのかラベル付けを行ってください。<br>
-また、完了したcsvファイルをtrain_dataフォルダに移動してください。
+processed.csvからいくつか(100以上推奨)を抜き出し、以下の表と同じ形式でcsvファイルを新しく作ります。<br>
+
+
+また、作成完了したcsvファイルをtrain_dataフォルダに移動してください。
 
 <img width="716" alt="スクリーンショット 2020-08-26 18 57 09" src="https://user-images.githubusercontent.com/62980317/91290065-1fbd4b80-e7ce-11ea-98cd-b5ee06236764.png">
 
