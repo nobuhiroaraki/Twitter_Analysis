@@ -32,18 +32,17 @@
 
 ## 利用方法
 
-#### ①Twitter APIの利用申請を行い、APIキー、トークンを取得
+### ①Twitter APIの利用申請を行い、APIキー、トークンを取得
 
-#### ②リポジトリをクローン
+### ②リポジトリをクローン
 ```
 git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 ```
 
-#### ③ Twitter_Analysisフォルダをgoogle driveにアップロード
+### ③ Twitter_Analysisフォルダをgoogle driveにアップロード
 
-#### ④google colab notebook.ipynbを開く➡︎GPUに接続し、driveにマウント
-#### ※あとはgoogle colab notebook.ipynbの全てのセルを実行すれば<br>
-ツイートの収集・前処理・ファインチューニング・感情分析・クラスタリングまで行われます。
+### ④google colab notebook.ipynbを開く➡︎GPUに接続し、driveにマウント
+### ※あとはgoogle colab notebook.ipynbの全てのセルを実行すれば<br>ツイートの収集・前処理・ファインチューニング・感情分析・クラスタリングまで行われます。
 
 
 ## ファインチューニング用データセット作成について<br>
