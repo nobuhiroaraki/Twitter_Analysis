@@ -41,6 +41,7 @@ git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 
 ### ③ Twitter_Analysisフォルダをgoogle driveにアップロード
 
+
 ### ④Google Colab上の環境構築
 
 GPUに接続してdriveにマウントします。
@@ -115,7 +116,7 @@ from train_model import train_model
 train_model()
 ```
 
-## 分析
+## ⑦分析
 notebook上で以下のように実行し、表示に従って操作してください
 ```python
 from train_model import train_model
