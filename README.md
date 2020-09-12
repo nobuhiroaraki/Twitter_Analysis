@@ -42,7 +42,7 @@ git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 ### ③ Twitter_Analysisフォルダをgoogle driveにアップロード
 
 ### ④google colab notebook.ipynbを開く➡︎GPUに接続し、driveにマウント
-### ※あとはgoogle colab notebook.ipynbの全てのセルを実行すれば<br>ツイートの収集・前処理・ファインチューニング・感情分析・クラスタリングまで行われます。
+#### ※あとはgoogle colab notebook.ipynbの全てのセルを実行すれば<br>ツイートの収集・前処理・ファインチューニング・感情分析・クラスタリングまで行うことができます。
 
 
 ## ファインチューニング用データセット作成について<br>
@@ -56,7 +56,7 @@ https://github.com/cl-tohoku/bert-japanese
 ファインチューニングのためのデータセット作成として以下の2種類の方法があります。
 
 
-#### (1)特定のキーワードに特化して判定させる場合（300件のデータでfine-tuningした結果、精度75%前後）
+#### (1)特定のキーワードに特化して判定させる場合（300件のデータでファインチューニングした結果、精度75%前後）
 
 notebook上で以下のように実行し、表示に従って操作してください
 ```python
@@ -69,7 +69,8 @@ df = preprocessing(tweet_path)
 
 ツイートの収集＆前処理結果が、dataフォルダにprocessed.csvとして保存されます<br>
 そしてprocessed.csvを以下の表と同じ形式に編集します。<br>
-そして各tweetをポジティブ(1)なのか、ネガティブ(0)なのかラベル付けを行ってください。
+そして各tweetをポジティブ(1)なのか、ネガティブ(0)なのかラベル付けを行ってください。<br>
+また、完了したcsvファイルをtrain_dataフォルダに移動してください。
 
 <img width="716" alt="スクリーンショット 2020-08-26 18 57 09" src="https://user-images.githubusercontent.com/62980317/91290065-1fbd4b80-e7ce-11ea-98cd-b5ee06236764.png">
 
@@ -84,9 +85,6 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f
 
 
 取得したtweetデータと感情判定(ポジティブ=1、ネガティブ=0)を、上記表と同様の形式でcsvファイルにまとめます。
-
-
-
 
 
 
