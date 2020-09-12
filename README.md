@@ -43,10 +43,12 @@ git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 
 ### ④google colab notebook.ipynbを開く➡︎GPUに接続し、driveにマウント
 
-#### ※あとはgoogle colab notebook.ipynbの全てのセルを実行すれば分析まで行えます。
+
+#### ※あとはgoogle colab notebook.ipynbの全てのセルを実行すればツイートの収集・前処理・ファインチューニング・感情分析・クラスタリングまで行われます。
 
 
-### fine-tuning用データセット作成について
+### ファインチューニング用データセット作成について<br>
+ファインチューニングの際にデータセットの作成を求められます。そのやり方を解説します。
 
 BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
 https://github.com/cl-tohoku/bert-japanese
