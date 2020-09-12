@@ -42,23 +42,38 @@ git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 ### ③ Twitter_Analysisフォルダをgoogle driveにアップロード
 
 ### ④google colab notebook.ipynbを開く➡︎GPUに接続し、driveにマウント
-
-
 #### ※あとはgoogle colab notebook.ipynbの全てのセルを実行すればツイートの収集・前処理・ファインチューニング・感情分析・クラスタリングまで行われます。
 
 
 ### ファインチューニング用データセット作成について<br>
-ファインチューニングの際にデータセットの作成を求められます。そのやり方を解説します。
+train_model()実行のためにデータセットを作成する必要があります。そのやり方を解説します。
 
 BERTの事前学習モデルとして、東北大学の乾研究室が作成したPretrained Japanese BERT modelsを用いています。<br>
 https://github.com/cl-tohoku/bert-japanese
 
-このモデルを日本語tweetデータでポジネガ判定できるようfine-tuningします。<br> 
+このモデルを日本語tweetデータでポジネガ判定できるようファインチューニングします。<br> 
 
-fine-tuningのためのデータセット作成として以下の2種類の方法があります。
+ファインチューニングのためのデータセット作成として以下の2種類の方法があります。
 
 
-#### (1)どのような話題に対しても汎用的に推測を行う場合（精度65~70%前後）
+#### (1)特定のキーワードに特化して判定させる場合（300件のデータでfine-tuningした結果、精度75%前後）
+
+notebook上で以下のように実行し、表示に従って操作してください
+```python
+from get_tweet import get_tweet
+from preprocessing import preprocessing
+get_tweet()
+tweet_path = "data/{}".format(input("分析するtweetデータファイルのファイル名を入力してください(.csvまで)"))
+df = preprocessing(tweet_path)
+```
+
+ツイートの収集＆前処理結果が、dataフォルダにprocessed.csvとして保存されます<br>
+そしてprocessed.csvを以下の表と同じ形式に編集します。<br>
+そして各tweetをポジティブ(1)なのか、ネガティブ(0)なのかラベル付けを行ってください。
+
+<img width="716" alt="スクリーンショット 2020-08-26 18 57 09" src="https://user-images.githubusercontent.com/62980317/91290065-1fbd4b80-e7ce-11ea-98cd-b5ee06236764.png">
+
+#### (2)どのような話題に対しても汎用的に推測を行う場合（精度65~70%前後）
 
 様々な話題に対して汎用的に推測を行うには大量のデータが必要です。<br>
 しかし自力で大量にラベル付けを行うのは大変なため、以下で公開されている大規模なTwitter日本語評判分析データセットを用います。<br>
@@ -68,22 +83,8 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f
 利用方法はhttps://github.com/tatHi/tweet_extructor を参考にしてください。<br>
 
 
-取得したtweetデータと感情判定(ポジティブ=1、ネガティブ=0)を、下記と同様の形式でcsvファイルにまとめます。
+取得したtweetデータと感情判定(ポジティブ=1、ネガティブ=0)を、上記表と同様の形式でcsvファイルにまとめます。
 
-
-<img width="716" alt="スクリーンショット 2020-08-26 18 57 09" src="https://user-images.githubusercontent.com/62980317/91290065-1fbd4b80-e7ce-11ea-98cd-b5ee06236764.png">
-
-#### (2)特定のキーワードに特化して判定させる場合（300件のデータでfine-tuningした結果、精度75%前後）
-
-notebook上で以下のように実行し、表示に従って操作してください
-```python
-from get_tweet import get_tweet
-from preprocessing import preprocessing
-get_tweet()
-preprocessing()
-```
-そしてprocessed.csvを上記表と同じ形式に編集します。<br>
-そして各tweetをポジティブ(1)なのか、ネガティブ(0)なのかラベル付けを行ってください。
 
 
 
