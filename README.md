@@ -41,10 +41,11 @@ git clone https://github.com/nobuhiroaraki/Twitter_Analysis.git
 
 ### ③ Twitter_Analysisフォルダをgoogle driveにアップロード
 
+### ④Google Colabに接続
 
-### ④Google Colab上の環境構築
+#### ※以下⑤〜⑦はgoogle colab notebook.ipynbの全てのセルを実行するのみ
 
-GPUに接続してdriveにマウントします。
+### ⑤Google Colab上の環境構築
 
 接続できたら以下のコマンドを入力してください。
 
@@ -119,8 +120,8 @@ train_model()
 ## ⑦分析
 notebook上で以下のように実行し、表示に従って操作してください
 ```python
-from train_model import train_model
-train_model()
+from Analysis import Analysis
+Analysis()
 ```
 表示に従って操作することでツイートの収集・感情分析・クラスタリングを行うことができます。
 
