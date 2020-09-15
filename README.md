@@ -102,5 +102,7 @@ http://www.db.info.gifu-u.ac.jp/data/Data_5d832973308d57446583ed9f
 
 ## 参考にした記事
 http://ailaby.com/twitter_api/
+
 https://qiita.com/namakemono/items/4c779c9898028fc36ff3
+
 http://www.ie110704.net/2018/12/29/wordcloud%E3%81%A8pyldavis%E3%81%AB%E3%82%88%E3%82%8Blda%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/
