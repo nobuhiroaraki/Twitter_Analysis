@@ -64,7 +64,7 @@ https://github.com/cl-tohoku/bert-japanese
 processed.csvからいくつか(100以上推奨)を抜き出し、以下の表と同じ形式でcsvファイルを新しく作ります。<br>
 
 
-また、作成完了したcsvファイルをtrain_dataフォルダに移動してください。
+また、作成完了したcsvファイルをtrain_dataフォルダに保存してください。
 
 <img width="716" alt="スクリーンショット 2020-08-26 18 57 09" src="https://user-images.githubusercontent.com/62980317/91290065-1fbd4b80-e7ce-11ea-98cd-b5ee06236764.png">
 
