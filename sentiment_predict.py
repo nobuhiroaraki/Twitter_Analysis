@@ -32,7 +32,7 @@ def build_model(model_name, num_classes, max_length):
     output = tf.keras.layers.Dense(num_classes, activation="softmax")(pooler_output)
     model = tf.keras.Model(inputs=[input_ids, attention_mask, token_type_ids], outputs=[output])
     optimizer = tf.keras.optimizers.Adam(learning_rate=3e-5, epsilon=1e-08, clipnorm=1.0)
-    model.compile(optimizer=optimizer, loss="binaey_crossentropy", metrics=["acc"])
+    model.compile(optimizer=optimizer, loss="binary_crossentropy", metrics=["acc"])
     return model
 
 
